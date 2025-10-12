@@ -1,0 +1,140 @@
+# Edge Safety Monitor .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Model files (large files)
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.pb
+models/pretrained/
+models/trained/
+models/exports/
+
+# Datasets (large files)
+data/raw/
+data/processed/
+data/annotations/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+*.mov
+datasets/
+
+# Outputs
+outputs/
+runs/
+results/
+logs/
+*.log
+
+# TensorBoard
+events.out.tfevents.*
+
+# Weights & Biases
+wandb/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Testing
+.pytest_cache/
+.tox/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Videos and large media files
+*.mkv
+*.webm
+*.flv
+
+# Cache
+.cache/
+*.cache
+
+# Kaggle credentials
+kaggle.json
+
+# Roboflow credentials
+roboflow_config.json
+
+# Keep directory structure but ignore contents
+!data/.gitkeep
+!models/.gitkeep
+!outputs/.gitkeep
+

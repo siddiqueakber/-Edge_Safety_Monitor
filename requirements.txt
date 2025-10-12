@@ -1,0 +1,62 @@
+# Edge Safety Monitor - Python Dependencies
+
+# Core Deep Learning & Computer Vision
+ultralytics>=8.0.0          # YOLOv8 framework
+torch>=2.0.0                # PyTorch
+torchvision>=0.15.0         # PyTorch vision utilities
+opencv-python>=4.8.0        # OpenCV for image processing
+opencv-contrib-python>=4.8.0  # Additional OpenCV modules
+
+# Image Processing & Augmentation
+albumentations>=1.3.0       # Advanced image augmentation
+Pillow>=10.0.0             # Python Imaging Library
+imgaug>=0.4.0              # Image augmentation library
+
+# Data Science & Numerical Computing
+numpy>=1.24.0              # Numerical computing
+pandas>=2.0.0              # Data manipulation
+scikit-learn>=1.3.0        # Machine learning utilities
+scipy>=1.11.0              # Scientific computing
+
+# Visualization
+matplotlib>=3.7.0          # Plotting library
+seaborn>=0.12.0           # Statistical visualization
+plotly>=5.14.0            # Interactive plots
+
+# Model Export & Optimization
+onnx>=1.14.0              # ONNX format support
+onnxruntime>=1.15.0       # ONNX runtime
+openvino>=2023.0.0        # Intel OpenVINO toolkit (optional)
+
+# Utilities
+tqdm>=4.65.0              # Progress bars
+pyyaml>=6.0               # YAML configuration files
+python-dotenv>=1.0.0      # Environment variables
+requests>=2.31.0          # HTTP requests for dataset download
+
+# Logging & Monitoring
+tensorboard>=2.13.0       # TensorBoard for training visualization
+wandb>=0.15.0             # Weights & Biases (optional, for experiment tracking)
+
+# Web Interface (Optional)
+flask>=2.3.0              # Web framework for dashboard
+streamlit>=1.24.0         # Quick ML web apps
+
+# Testing
+pytest>=7.4.0             # Testing framework
+pytest-cov>=4.1.0         # Coverage plugin
+
+# Code Quality
+black>=23.7.0             # Code formatter
+flake8>=6.0.0             # Linting
+isort>=5.12.0             # Import sorting
+
+# Edge Deployment (Uncomment if deploying to edge devices)
+# tensorflow-lite>=2.13.0  # TensorFlow Lite
+# picamera>=1.13           # Raspberry Pi camera (if using RPi)
+# RPi.GPIO>=0.7.1          # Raspberry Pi GPIO (if using RPi)
+
+# Additional datasets sources
+roboflow>=1.1.0           # Roboflow API for datasets
+kaggle>=1.5.16            # Kaggle API for datasets
+

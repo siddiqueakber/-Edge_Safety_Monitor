@@ -1,0 +1,140 @@
+# Edge Safety Monitor - Main Configuration File
+
+# Project Information
+project:
+  name: "Edge Safety Monitor"
+  version: "1.0.0"
+  author: "Siddique Akber"
+  description: "AI-powered real-time safety monitoring system"
+
+# Paths
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  output_dir: "outputs"
+  logs_dir: "logs"
+
+# Model Configuration
+model:
+  architecture: "yolov8"
+  variant: "yolov8n"  # Options: yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
+  pretrained: true
+  input_size: 640
+  
+# Training Configuration
+training:
+  epochs: 100
+  batch_size: 16
+  learning_rate: 0.01
+  patience: 50
+  save_period: 10
+  workers: 8
+  device: "auto"  # auto, cpu, 0, 1, etc.
+  
+# Data Augmentation
+augmentation:
+  hsv_h: 0.015  # HSV-Hue augmentation
+  hsv_s: 0.7    # HSV-Saturation augmentation
+  hsv_v: 0.4    # HSV-Value augmentation
+  degrees: 0.0  # Rotation
+  translate: 0.1  # Translation
+  scale: 0.5    # Scale
+  shear: 0.0    # Shear
+  perspective: 0.0  # Perspective
+  flipud: 0.0   # Flip up-down
+  fliplr: 0.5   # Flip left-right
+  mosaic: 1.0   # Mosaic augmentation
+  mixup: 0.0    # Mixup augmentation
+
+# Inference Configuration
+inference:
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  max_detections: 300
+  
+# Classes
+classes:
+  person: 0
+  helmet: 1
+  no_helmet: 2
+  vest: 3
+  no_vest: 4
+  phone: 5
+  drowsy: 6
+  alert: 7
+
+# Safety Thresholds
+safety:
+  helmet_required: true
+  vest_required: true
+  phone_allowed: false
+  drowsiness_alert: true
+  
+  # Alert thresholds
+  confidence_threshold: 0.6
+  consecutive_frames: 5  # Number of consecutive frames before alert
+  
+# Alert Configuration
+alerts:
+  enabled: true
+  methods:
+    - "console"
+    - "log"
+    # - "email"
+    # - "sms"
+    # - "webhook"
+  
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender: "your-email@gmail.com"
+    password: "your-app-password"
+    recipients:
+      - "safety-team@company.com"
+  
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  save_logs: true
+  log_file: "logs/safety_monitor.log"
+  
+# Performance
+performance:
+  enable_tensorrt: false
+  enable_onnx: false
+  quantization: false
+  half_precision: false  # FP16
+
+# Edge Deployment
+edge:
+  device_type: "raspberry_pi"  # raspberry_pi, jetson_nano, cpu
+  optimize_for_edge: true
+  target_fps: 15
+  max_model_size_mb: 100
+
+# Video Processing
+video:
+  frame_skip: 1  # Process every Nth frame
+  save_output: true
+  output_format: "mp4"
+  codec: "mp4v"
+  show_fps: true
+  
+# Visualization
+visualization:
+  show_labels: true
+  show_confidence: true
+  show_boxes: true
+  box_thickness: 2
+  font_scale: 0.5
+  
+  # Colors (BGR format)
+  colors:
+    helmet: [0, 255, 0]      # Green
+    no_helmet: [0, 0, 255]   # Red
+    vest: [0, 255, 255]      # Yellow
+    no_vest: [0, 165, 255]   # Orange
+    phone: [255, 0, 0]       # Blue
+    drowsy: [0, 0, 128]      # Dark Red
+    alert: [0, 255, 0]       # Green
+
