@@ -73,6 +73,7 @@ datasets/
 # Outputs
 outputs/
 runs/
+run/
 results/
 logs/
 *.log
