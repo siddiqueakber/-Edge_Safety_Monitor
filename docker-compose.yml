@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  # Real-time webcam monitoring
+  safety-monitor:
+    build: .
+    container_name: edge-safety-monitor
+    image: edge-safety-monitor:latest
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Device access for webcam (Linux/Mac)
+    devices:
+      - /dev/video0:/dev/video0
+    
+    # Volume mounts
+    volumes:
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - ./models:/app/models
+    
+    # Environment variables
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CONFIDENCE_THRESHOLD=0.5
+      - MODEL_PATH=models/ppe_detection_4classes/best.pt
+      - TZ=UTC
+    
+    # Network mode for display (optional)
+    network_mode: bridge
+    
+    # Default command
+    command: python real_time_safety_monitor.py --source webcam --conf 0.5
+    
+    # Labels for organization
+    labels:
+      app: "edge-safety-monitor"
+      environment: "production"
+
+  # Video file processor (run on-demand)
+  video-processor:
+    build: .
+    container_name: safety-video-processor
+    image: edge-safety-monitor:latest
+    
+    volumes:
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+      - ./videos:/app/videos
+      - ./models:/app/models
+    
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    # Process specific video
+    command: python real_time_safety_monitor.py --source /app/videos/input.mp4 --conf 0.5
+    
+    profiles:
+      - batch
+
+  # Image processor (run on-demand)
+  image-processor:
+    build: .
+    container_name: safety-image-processor
+    image: edge-safety-monitor:latest
+    
+    volumes:
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+      - ./images:/app/images
+      - ./models:/app/models
+    
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    # Process specific image
+    command: python real_time_safety_monitor.py --source /app/images/input.jpg --conf 0.5
+    
+    profiles:
+      - batch
+
