@@ -149,7 +149,7 @@ Snapshots are saved to: `outputs/safety_monitoring/`
 ## 📈 Model Performance
 
 **Model Information:**
-- **Architecture**: YOLOv11nn (Nano - optimized for edge devices)
+- **Architecture**: YOLOv11n (Nano - optimized for edge devices)
 - **Model File**: `models/ppe_detection_4classes/best.pt` (5.2 MB, via Git LFS)
 - **Training Epochs**: 100
 - **Dataset**: Construction site PPE compliance dataset
