@@ -45,8 +45,8 @@ venv.bak/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-# Model files (large files)
-*.pt
+# Model files (large files) - tracked by Git LFS
+# *.pt files are tracked by Git LFS (see .gitattributes)
 *.pth
 *.onnx
 *.tflite
@@ -54,6 +54,9 @@ venv.bak/
 models/pretrained/
 models/trained/
 models/exports/
+
+# Specific models to track (with Git LFS)
+!models/ppe_detection_4classes/best.pt
 
 # Datasets (large files)
 data/raw/
