@@ -57,22 +57,31 @@ The model detects **10 different classes**:
 ### Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/siddiqueakber/edge-safety-monitor.git
-cd edge-safety-monitor
+# 1. Clone the repository (includes model via Git LFS)
+git clone https://github.com/siddiqueakber/-Edge_Safety_Monitor.git
+cd -Edge_Safety_Monitor
 
-# 2. Create virtual environment
+# 2. Install Git LFS (if not already installed)
+# Download from: https://git-lfs.github.com/
+# The trained model files are stored with Git LFS
+
+# 3. Pull LFS files (model weights)
+git lfs pull
+
+# 4. Create virtual environment
 python -m venv venv
 
-# 3. Activate virtual environment
+# 5. Activate virtual environment
 # Windows:
 venv\Scripts\activate
 # Linux/Mac:
 source venv/bin/activate
 
-# 4. Install dependencies
+# 6. Install dependencies
 pip install -r requirements.txt
 ```
+
+**📦 Model Download**: The trained model (`models/ppe_detection_4classes/best.pt` - 5.2 MB) is included via **Git LFS**. Make sure Git LFS is installed before cloning.
 
 ### Usage
 
@@ -139,22 +148,30 @@ Snapshots are saved to: `outputs/safety_monitoring/`
 
 ## 📈 Model Performance
 
-The model has been trained on construction site PPE datasets with the following capabilities:
+**Model Information:**
+- **Architecture**: YOLOv8n (Nano - optimized for edge devices)
+- **Model File**: `models/ppe_detection_4classes/best.pt` (5.2 MB, via Git LFS)
+- **Training Epochs**: 100
+- **Dataset**: Construction site PPE compliance dataset
+- **Classes**: 10 detection classes
+
+**Performance Metrics:**
 
 | Metric | Value |
 |--------|-------|
-| **Model Size** | ~10.5 MB |
+| **Model Size** | 5.2 MB |
 | **Inference Speed (CPU)** | 50-100ms per frame |
 | **Inference Speed (GPU)** | 15-30ms per frame |
-| **Training Epochs** | 100 |
-| **Classes Detected** | 10 (PPE + Equipment) |
+| **FPS (CPU)** | 10-20 FPS |
+| **FPS (GPU)** | 30-60 FPS |
 
-Training results and metrics are available in `run/train/helmet_detection_100epochs/` including:
+**Training Results** available in `run/train/helmet_detection_100epochs/`:
 - Confusion matrices
 - Precision-Recall curves
 - F1 score curves
 - Training loss curves
 - Validation results
+- Model checkpoints (best.pt, last.pt)
 
 ---
 
