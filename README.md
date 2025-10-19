@@ -1,10 +1,10 @@
 # 🦺 Edge Safety Monitor - Construction Site Safety Detection
 
-**Real-time PPE compliance monitoring system using YOLOv8 for construction site safety**
+**Real-time PPE compliance monitoring system using YOLOv11n for construction site safety**
 
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
-[![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-brightgreen.svg)](https://github.com/ultralytics/ultralytics)
+[![YOLOv11n](https://img.shields.io/badge/YOLOv11n-Ultralytics-brightgreen.svg)](https://github.com/ultralytics/ultralytics)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
@@ -149,7 +149,7 @@ Snapshots are saved to: `outputs/safety_monitoring/`
 ## 📈 Model Performance
 
 **Model Information:**
-- **Architecture**: YOLOv8n (Nano - optimized for edge devices)
+- **Architecture**: YOLOv11nn (Nano - optimized for edge devices)
 - **Model File**: `models/ppe_detection_4classes/best.pt` (5.2 MB, via Git LFS)
 - **Training Epochs**: 100
 - **Dataset**: Construction site PPE compliance dataset
@@ -202,7 +202,7 @@ edge-safety-monitor/
 │
 ├── models/
 │   └── ppe_detection_4classes/   # Trained PPE detection model
-│       └── best.pt               # YOLOv8 trained weights
+│       └── best.pt               # YOLOv11n trained weights
 │
 ├── scripts/
 │   ├── train_model.py            # Model training script
@@ -401,7 +401,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) - Object detection framework
+- [Ultralytics YOLOv11n](https://github.com/ultralytics/ultralytics) - Object detection framework
 - [OpenCV](https://opencv.org/) - Computer vision library
 - [PyTorch](https://pytorch.org/) - Deep learning framework
 
