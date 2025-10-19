@@ -165,7 +165,7 @@ Snapshots are saved to: `outputs/safety_monitoring/`
 | **FPS (CPU)** | 10-20 FPS |
 | **FPS (GPU)** | 30-60 FPS |
 
-**Training Results** available in `run/train/helmet_detection_100epochs/`:
+**Training Results** 
 - Confusion matrices
 - Precision-Recall curves
 - F1 score curves
